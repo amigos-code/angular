@@ -6,5 +6,138 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'directives-poc';
+  currentPage=0;
+  images=[
+    {
+      'title':'beach',
+      'imageUrl':'https://media.istockphoto.com/photos/coastline-aerial-photograph-of-aquamarine-ocean-and-man-walking-along-picture-id1299198919?b=1&k=20&m=1299198919&s=170667a&w=0&h=OukNdouyUPBtxHro52LiDktZrQYDdFwQJo67AW9dv2c='
+  },
+  {
+    'title':'mountains',
+    'imageUrl':'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW91bnRhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
+},
+{
+  'title':'biking',
+  'imageUrl':'https://images.unsplash.com/photo-1508789454646-bef72439f197?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmlraW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+  'title':'sea',
+  'imageUrl':'https://images.unsplash.com/photo-1564419429381-98dbcf916478?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8c2VhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+  'title':'beach',
+  'imageUrl':'https://media.istockphoto.com/photos/coastline-aerial-photograph-of-aquamarine-ocean-and-man-walking-along-picture-id1299198919?b=1&k=20&m=1299198919&s=170667a&w=0&h=OukNdouyUPBtxHro52LiDktZrQYDdFwQJo67AW9dv2c='
+},
+{
+'title':'mountains',
+'imageUrl':'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW91bnRhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'biking',
+'imageUrl':'https://images.unsplash.com/photo-1508789454646-bef72439f197?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmlraW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'sea',
+'imageUrl':'https://images.unsplash.com/photo-1564419429381-98dbcf916478?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8c2VhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+  'title':'beach',
+  'imageUrl':'https://media.istockphoto.com/photos/coastline-aerial-photograph-of-aquamarine-ocean-and-man-walking-along-picture-id1299198919?b=1&k=20&m=1299198919&s=170667a&w=0&h=OukNdouyUPBtxHro52LiDktZrQYDdFwQJo67AW9dv2c='
+},
+{
+'title':'mountains',
+'imageUrl':'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW91bnRhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'biking',
+'imageUrl':'https://images.unsplash.com/photo-1508789454646-bef72439f197?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmlraW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'sea',
+'imageUrl':'https://images.unsplash.com/photo-1564419429381-98dbcf916478?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8c2VhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+  'title':'beach',
+  'imageUrl':'https://media.istockphoto.com/photos/coastline-aerial-photograph-of-aquamarine-ocean-and-man-walking-along-picture-id1299198919?b=1&k=20&m=1299198919&s=170667a&w=0&h=OukNdouyUPBtxHro52LiDktZrQYDdFwQJo67AW9dv2c='
+},
+{
+'title':'mountains',
+'imageUrl':'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW91bnRhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'biking',
+'imageUrl':'https://images.unsplash.com/photo-1508789454646-bef72439f197?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmlraW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'sea',
+'imageUrl':'https://images.unsplash.com/photo-1564419429381-98dbcf916478?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8c2VhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+  'title':'beach',
+  'imageUrl':'https://media.istockphoto.com/photos/coastline-aerial-photograph-of-aquamarine-ocean-and-man-walking-along-picture-id1299198919?b=1&k=20&m=1299198919&s=170667a&w=0&h=OukNdouyUPBtxHro52LiDktZrQYDdFwQJo67AW9dv2c='
+},
+{
+'title':'mountains',
+'imageUrl':'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW91bnRhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'biking',
+'imageUrl':'https://images.unsplash.com/photo-1508789454646-bef72439f197?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmlraW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'sea',
+'imageUrl':'https://images.unsplash.com/photo-1564419429381-98dbcf916478?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8c2VhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},{
+  'title':'beach',
+  'imageUrl':'https://media.istockphoto.com/photos/coastline-aerial-photograph-of-aquamarine-ocean-and-man-walking-along-picture-id1299198919?b=1&k=20&m=1299198919&s=170667a&w=0&h=OukNdouyUPBtxHro52LiDktZrQYDdFwQJo67AW9dv2c='
+},
+{
+'title':'mountains',
+'imageUrl':'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW91bnRhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'biking',
+'imageUrl':'https://images.unsplash.com/photo-1508789454646-bef72439f197?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmlraW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'sea',
+'imageUrl':'https://images.unsplash.com/photo-1564419429381-98dbcf916478?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8c2VhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+  'title':'beach',
+  'imageUrl':'https://media.istockphoto.com/photos/coastline-aerial-photograph-of-aquamarine-ocean-and-man-walking-along-picture-id1299198919?b=1&k=20&m=1299198919&s=170667a&w=0&h=OukNdouyUPBtxHro52LiDktZrQYDdFwQJo67AW9dv2c='
+},
+{
+'title':'mountains',
+'imageUrl':'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW91bnRhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'biking',
+'imageUrl':'https://images.unsplash.com/photo-1508789454646-bef72439f197?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmlraW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'sea',
+'imageUrl':'https://images.unsplash.com/photo-1564419429381-98dbcf916478?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8c2VhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+  'title':'beach',
+  'imageUrl':'https://media.istockphoto.com/photos/coastline-aerial-photograph-of-aquamarine-ocean-and-man-walking-along-picture-id1299198919?b=1&k=20&m=1299198919&s=170667a&w=0&h=OukNdouyUPBtxHro52LiDktZrQYDdFwQJo67AW9dv2c='
+},
+{
+'title':'mountains',
+'imageUrl':'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bW91bnRhaW58ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'biking',
+'imageUrl':'https://images.unsplash.com/photo-1508789454646-bef72439f197?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmlraW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+},
+{
+'title':'sea',
+'imageUrl':'https://images.unsplash.com/photo-1564419429381-98dbcf916478?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8c2VhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60'
+}
+  ];
+  checkWindowIndex(index:number){
+    return Math.abs(this.currentPage-index)<5;
+  }
+
 }
